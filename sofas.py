@@ -29,7 +29,7 @@ st.write("Each prediction for width, depth and height will be a probability betw
 st.write("As you'll see when you upload an image, we'll add those 3 scores together to create a weighting to decide whether to charge more for transporting the item")
 
 with st.expander("Click here for more details about how this model was built"):
-        st.write("""The is a Multilabel Classification model using a Convolutional Neural Network (CNN) to convert images into grids of numbers, which it then scans to discover patterns.""") 
+        st.write("""This is a Multilabel Classification model using a Convolutional Neural Network (CNN) to convert images into grids of numbers, which it then scans to discover patterns.""") 
         st.write("""Each image also comes with 3x labels, which correspond to the 3x dimensions: width, depth and height. They were scored with a 1 if the dimension was bigger than a standard sofa and 0 if was smaller. The model uses that information along with the patterns it learned to calculate the probability of whether a new image is bigger/smaller than a standard 3-seater.""")
         st.write("""Over 1,000 images were used to train and test the model. That's A LOT of photo shoots!""")
             
