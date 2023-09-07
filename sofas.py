@@ -36,7 +36,7 @@ with st.expander("Click here for more details about how this model was built"):
 @st.cache(persist=True)
 
 def import_and_predict(image_data, model):
-        size = (256,256)
+        size = (224,224)
         image = ImageOps.fit(image_data, size, Image.Resampling.LANCZOS)
         image = image.convert('RGB')
         image = np.asarray(image)
