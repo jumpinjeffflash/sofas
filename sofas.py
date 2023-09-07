@@ -15,7 +15,7 @@ from keras.layers import Conv2D, MaxPooling2D
 from keras.preprocessing import image
 from keras.metrics import binary_accuracy
 from sklearn.model_selection import train_test_split
-from tqdm import tqdm
+# from tqdm import tqdm
 from keras.layers import BatchNormalization
 
 import streamlit as st
