@@ -6,7 +6,7 @@ import tensorflow as tf
 from PIL import Image, ImageOps
 import pandas as pd
 import numpy as np
-from cv2 import cv2
+# from cv2 import cv2
 
 import keras
 from keras.models import Sequential
@@ -38,17 +38,17 @@ with st.expander("Click here for more details about how this model was built"):
 def import_and_predict(image_data, model):
     
         size = (256,256)
-        image = ImageOps.fit(image_data, size, Image.ANTIALIAS)
+        image = ImageOps.fit(image_data, size, Image.Resampling.LANCZOS)
+        image = image.convert('RGB')
         image = np.asarray(image)
-        img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        img_resize = (cv2.resize(img, dsize=(256, 256), interpolation=cv2.INTER_CUBIC))/255.
+        image = (image.astype(np.float32) / 255.0)
         
-        img_reshape = img_resize[np.newaxis,...]    
+        img_reshape = image[np.newaxis,...] 
         
-        prediction = model.predict(img_reshape)
+        rediction = model.predict(img_reshape)
 
         return prediction
-
+        
 file = st.file_uploader("Please upload your image...", type=["png","jpg","jpeg"])
 
 if file is None:
