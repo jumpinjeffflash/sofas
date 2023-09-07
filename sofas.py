@@ -33,10 +33,9 @@ with st.expander("Click here for more details about how this model was built"):
         st.write("""Each image also comes with 3x labels, which correspond to the 3x dimensions: width, depth and height. They were scored with a 1 if the dimension was bigger than a standard sofa and 0 if it was smaller. The model uses that information along with the patterns it learned to calculate the probability of whether a new image is bigger/smaller than a standard 3-seater.""")
         st.write("""Over 1,000 images were used to train and test the model. That's A LOT of photo shoots!""")
             
-@st.cache
+@st.cache(persist=True)
 
 def import_and_predict(image_data, model):
-    
         size = (256,256)
         image = ImageOps.fit(image_data, size, Image.Resampling.LANCZOS)
         image = image.convert('RGB')
