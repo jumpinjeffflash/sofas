@@ -45,7 +45,7 @@ def import_and_predict(image_data, model):
         
         img_reshape = image[np.newaxis,...] 
         
-        rediction = model.predict(img_reshape)
+        prediction = model.predict(img_reshape)
 
         return prediction
         
